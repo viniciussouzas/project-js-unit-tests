@@ -36,24 +36,25 @@
   BOAS PRÁTICAS TDD: COMECE PELO TESTE 1 DO ARQUIVO `tests/restaurant.spec.js` E VOLTE A ESTE ARQUIVO QUANDO FOR INDICADO!
 */
 
-// Faça os ítens de 1 a 3 no arquivo tests/restaurant.spec.js
+const createMenu = (menu) => {
+  const objetoRetornado = {
+    fetchMenu: () => 
+      menu,
+      consumption: [],
+      order: (string) => {
+        const toEat = Object.keys(objetoRetornado.fetchMenu.food);
 
-// 4: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato: 
-//  { fetchMenu: () => objetoPassadoPorParametro }.
+        const toDrink = Object.keys(objetoRetornado.fetchMenu.drink);
 
-const createMenu = () => {};
+        if (toEat === string || toDrink === string) {
+          objetoRetornado.consumption.push(toEat);
+        }
 
-// Faça o item 5 no arquivo tests/restaurant.spec.js
-
-// 6: Adicione ao objeto retornado por `createMenu()` uma chave de nome `consumption` que, como valor inicial, tem um array vazio.
-
-// Faça o item 7 no arquivo tests/restaurant.spec.js
-
-// 8: Crie uma função, associada à chave 'order', que, ao receber uma string como parâmetro, adiciona essa string ao array da chave 'consumption'.
-// - se a string existir nas chaves 'food' ou 'drink', deve ser adicionada ao array consumption
-// - senão, deve exibir a mensagem "Item indisponível" e não adicionar nada ao array
-// Ex: obj.order('coxinha') --> ['coxinha']
-// Ex: obj.order('picanha') --> Exibe "Item indisponível"
+        return 'Item indisponível';
+      },
+  };
+  return objetoRetornado;
+};
 
 // Faça os ítens de 9 a 11 no arquivo tests/restaurant.spec.js
 
